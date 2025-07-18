@@ -22,10 +22,6 @@ Si quieres ver una *preview* del video, ejecuta:
 npm run dev
 ```
 
-## Demo
-
-Dentro del proyecto puedes encontrar un ejemplo de muestra. En el directorio `out/` (donde se guardan los videos generados) hay un ejemplo de resultado, así como una configuración de muestra, audio y miniatura.
-
 ## Configuraciones
 
 | Parámetro     | Descripción                                                                                                                | Data Type                  | Obligatorio | Predeterminado |
