@@ -1,36 +1,47 @@
 import { Composition } from "remotion";
-import { HelloWorld } from "./HelloWorld";
-import { Logo } from "./HelloWorld/Logo";
+import { MusicVisualizerH } from "./MusicVisualizerH";
+import { MusicVisualizerV } from "./MusicVisualizerV";
 
 // Each <Composition> is an entry in the sidebar!
 
 export const RemotionRoot = () => {
+  // npx remotion render <id> out/video.mp4
+  const songData = {
+    title: "ハイドレンジア feat. 歌愛ユキ",
+    artist: "LonePi",
+    audio: "audio.mp3",
+    miniature: "miniature.jpg",
+    bpm: 134,
+    bgColor: "#2d2331ff",
+    colors: [
+      "#2d2331ff",
+      "#4a2e4bff",
+      "#392e49ff"
+    ],
+    duration: 3 * 60 + 21,
+    // OPTIONAL
+    // seed: 42,
+    // blur: 60
+  }
   return (
     <>
       <Composition
-        // You can take the "id" to render a video:
-        // npx remotion render src/index.jsx <id> out/video.mp4
-        id="HelloWorld"
-        component={HelloWorld}
-        durationInFrames={150}
+        id="MusicVisualizerH"
+        component={MusicVisualizerH}
+        durationInFrames={30 * songData.duration}
         fps={30}
         width={1920}
         height={1080}
-        // You can override these props for each render:
-        // https://www.remotion.dev/docs/parametrized-rendering
-        defaultProps={{
-          titleText: "Welcome to Remotion",
-          titleColor: "black",
-        }}
+        defaultProps={songData}
       />
-      {/* Mount any React component to make it show up in the sidebar and work on it individually! */}
       <Composition
-        id="OnlyLogo"
-        component={Logo}
-        durationInFrames={150}
+        id="MusicVisualizerV"
+        component={MusicVisualizerV}
+        durationInFrames={30 * songData.duration}
         fps={30}
-        width={1920}
-        height={1080}
+        height={1920}
+        width={1080}
+        defaultProps={songData}
       />
     </>
   );
