@@ -1,7 +1,7 @@
 import { continueRender, delayRender, Sequence, useVideoConfig, Audio, Img, AbsoluteFill, interpolate, spring, useCurrentFrame, staticFile } from 'remotion';
 import { LiquidBackground } from './LiquidBackground';
 
-export const MusicVisualizerH = ({ title, artist, bpm, bgColor, colors }) => {
+export const MusicVisualizerH = ({ title, artist, bpm, bgColor, colors, audio, miniature }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames, width, height } = useVideoConfig();
 
@@ -25,7 +25,7 @@ export const MusicVisualizerH = ({ title, artist, bpm, bgColor, colors }) => {
 
       {/* Imagen de portada con zoom */}
       <Img
-        src={staticFile('miniature.jpg')}
+        src={staticFile(miniature)}
         style={{
           width: '500px',
           height: '500px',
@@ -69,7 +69,7 @@ export const MusicVisualizerH = ({ title, artist, bpm, bgColor, colors }) => {
       </div>
 
       {/* Audio */}
-      <Audio src={staticFile('audio.mp3')} />
+      <Audio src={staticFile(audio)} />
     </AbsoluteFill>
   );
 };
